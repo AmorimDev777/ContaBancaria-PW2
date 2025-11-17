@@ -1,16 +1,16 @@
 ClientePF
-    cadastrar()
-    alterar()
-    deletar()
+    cadastrar()  ✔
+    alterar()  ✔
+    deletar()  ✔
     consultarTodos (com filtro de nome)
-    consultarProCPF()
+    consultarPorCPF()
     consultarID()
     consultarPorEmail()
 
 ClientePJ
-    cadastrar()
-    alterar()
-    deletar()
+    cadastrar()  ✔
+    alterar()  ✔
+    deletar()  ✔
     consultarTodos (com filtro de nome, razao social)
     consultarProCNPJ()
     consultarID()
@@ -25,8 +25,8 @@ Contas
     consultarTodos(filtrar por nome do cliente)
 
 Contas Transações
-    Depositar()
-    Transferir()
+    Depositar()  ✔
+    Transferir()  ✔
 
 ---------- Criação da procedure para criar uma nova conta ----------
 --DELIMITER $$
