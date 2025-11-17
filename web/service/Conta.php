@@ -1,14 +1,18 @@
-<?php 
+<?php
 
-abstract class Conta{
+require_once __DIR__ . '/Titular.php';
+
+abstract class Conta
+{
     protected int $id;
     protected Titular $titular;
     protected float $saldo;
     protected float $limite;
 
-    public function setId(int $id):void{
-        if($id <= 0){
-            throw new Exception(message: "O numero da conta deve ser positivo!");
+    public function setId(int $id): void
+    {
+        if ($id <= 0) {
+            throw new InvalidArgumentException("O numero da conta deve ser positivo!");
         }
         $this->id = $id;
     }
@@ -41,15 +45,18 @@ abstract class Conta{
 
     abstract public function Sacar(float $valor): array;
 
-    public function Transferir(Conta $contaDestino, float $valor): array{
-        if($contaDestino == null){
-            throw new ArgumentException(message: "A conta de destino não pode ser nula!");
+    public function Transferir(Conta $contaDestino, float $valor): array
+    {
+        if ($contaDestino === null) {
+            throw new InvalidArgumentException("A conta de destino não pode ser nula!");
         }
 
         $resultado = [];
 
         $resultado['saque'] = $this->Sacar($valor);
-        $resultado['saque'] = $contaDestino->Depositar($valor);
+        $resultado['deposito'] = $contaDestino->Depositar($valor);
+
+        return $resultado;
     }
 }
 ?>
